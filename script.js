@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".section");
+
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
@@ -7,9 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         },
-        { threshold: 0.5 }
+        {
+            threshold: 0.1,
+        }
     );
 
-    const elements = document.querySelectorAll(".animate");
-    elements.forEach((el) => observer.observe(el));
+    sections.forEach((section) => {
+        observer.observe(section);
+    });
 });
