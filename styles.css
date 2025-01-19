@@ -68,6 +68,7 @@ body {
 .section h1, .section h2 {
     font-size: 36px;
     margin-bottom: 20px;
+    text-align: center; /* Pastikan teks judul di tengah */
 }
 
 .section p {
