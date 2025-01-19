@@ -11,15 +11,13 @@ body {
     color: white;
     line-height: 1.6;
     margin: 0;
-    height: 100%;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; /* Menghindari scroll horisontal */
 }
 
 html {
-    scroll-snap-type: y mandatory; /* Mengatur scroll-snap pada vertical */
     height: 100%;
+    scroll-snap-type: y mandatory; /* Mengaktifkan scroll snap vertikal */
 }
 
 header {
@@ -34,12 +32,11 @@ header {
     z-index: 1000;
 }
 
-/* Mengatur setiap section agar berada satu per satu dalam viewport */
 section {
-    height: 100vh;
+    height: 100vh; /* Setiap section mengisi layar */
     padding: 100px 20px;
     text-align: center;
-    scroll-snap-align: start;  /* Menyinkronkan bagian-bagian */
+    scroll-snap-align: start;  /* Bagian dimulai dari atas saat scroll */
     opacity: 0;
     transform: translateY(50px);
     transition: all 0.8s ease;
