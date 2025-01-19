@@ -4,13 +4,17 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;  /* Pastikan body dan html memiliki tinggi penuh */
+    overflow: hidden; /* Mencegah scroll horizontal */
+}
+
 body {
     font-family: Arial, sans-serif;
     background: black;
     color: white;
     line-height: 1.6;
-    margin: 0;
-    overflow-x: hidden; /* Menghindari scroll horizontal */
+    scroll-behavior: smooth; /* Menambahkan smooth scroll */
 }
 
 .header {
@@ -56,23 +60,26 @@ body {
     cursor: pointer;
 }
 
-.section {
+/* Tambahkan scroll-snap ke setiap section untuk membuat setiap halaman penuh */
+section {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px;
-    min-height: 100vh; /* Setiap bagian mengambil tinggi layar penuh */
+    height: 100vh;  /* Setiap section mengambil penuh layar */
+    scroll-snap-align: start;  /* Memastikan halaman berhenti di awal */
+    flex-direction: column;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
 .section-content {
-    max-width: 1200px;  /* Batasi lebar konten */
-    width: 100%;  /* Konten menggunakan seluruh lebar yang tersedia */
+    max-width: 1200px;
+    width: 100%;
 }
 
 .section h1, .section h2 {
     font-size: 36px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .section p {
@@ -125,6 +132,18 @@ body {
 @media (max-width: 768px) {
     .portfolio {
         grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 30px 20px;
+    }
+
+    .section h1, .section h2 {
+        font-size: 28px;
+    }
+
+    .section p {
+        font-size: 16px;
     }
 }
 
