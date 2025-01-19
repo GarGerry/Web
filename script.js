@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         },
         {
-            threshold: 0.5,  // Menambahkan threshold untuk membuat bagian lebih terlihat
+            threshold: 0.5,  // Ketika 50% bagian terlihat
         }
     );
 
