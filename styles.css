@@ -57,18 +57,22 @@ body {
 }
 
 .section {
-    min-height: 100vh;  /* Setiap bagian menempati seluruh tinggi layar */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 20px;
+    min-height: 100vh; /* Setiap bagian mengambil tinggi layar penuh */
+}
+
+.section-content {
+    max-width: 1200px;  /* Batasi lebar konten */
+    width: 100%;  /* Konten menggunakan seluruh lebar yang tersedia */
 }
 
 .section h1, .section h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    text-align: center; /* Pastikan teks judul di tengah */
 }
 
 .section p {
