@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: black;
+    color: white;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: black;
+    border-bottom: 1px solid white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navigation ul {
+    display: flex;
+    list-style: none;
+}
+
+.navigation ul li {
+    margin: 0 15px;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.navigation ul li a:hover {
+    color: grey;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.section {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.section h1, .section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.section p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.portfolio {
+    display: grid;
+    grid-template-columns: 1fr 1fr;  /* Membuat dua kolom */
+    gap: 20px;  /* Jarak antar kolom */
+    margin-top: 20px;
+}
+
+.item {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;  /* Memastikan teks dan gambar rata tengah */
+}
+
+.liquid-digital-assets {
+    background-color: #e0f7fa;  /* Warna latar belakang untuk Liquid Digital Assets */
+}
+
+.partners {
+    background-color: #f1f8e9;  /* Warna latar belakang untuk Partners */
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;  /* Jarak antar gambar */
+    flex-wrap: wrap;  /* Agar gambar tetap rapat di perangkat mobile */
+    margin-top: 10px;
+}
+
+.portfolio-logo {
+    max-width: 80px;  /* Ukuran maksimum logo */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-logo:hover {
+    transform: scale(1.1);  /* Efek zoom saat hover pada logo */
+}
+
+@media (max-width: 768px) {
+    .portfolio {
+        grid-template-columns: 1fr;  /* Untuk tampilan mobile, satu kolom */
+    }
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: black;
+    border-top: 1px solid white;
+}
