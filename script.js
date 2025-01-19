@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         },
         {
-            threshold: 0.5,  // Membuat animasi lebih mulus saat 50% bagian masuk viewport
+            threshold: 0.5,  // Menambahkan threshold untuk membuat bagian lebih terlihat
         }
     );
 
