@@ -12,9 +12,18 @@ body {
     line-height: 1.6;
     margin: 0;
     scroll-behavior: smooth; /* Smooth scrolling */
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
-.header {
+html {
+    scroll-snap-type: y mandatory; /* Menentukan scroll snap untuk vertikal */
+    height: 100%;
+}
+
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,42 +35,19 @@ body {
     z-index: 1000;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.navigation ul {
-    display: flex;
-    list-style: none;
-}
-
-.navigation ul li {
-    margin: 0 15px;
-}
-
-.navigation ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    transition: color 0.3s;
-}
-
-.navigation ul li a:hover {
-    color: grey;
-}
-
-.section {
+section {
+    height: 100vh; /* Mengatur tinggi tiap section untuk full screen */
     padding: 100px 20px;
     text-align: center;
-    opacity: 0; /* Mulai tidak terlihat */
-    transform: translateY(50px); /* Geser ke bawah */
-    transition: all 0.8s ease; /* Transisi animasi */
+    scroll-snap-align: start; /* Mengunci posisi di setiap section */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
 }
 
-.section.visible {
-    opacity: 1; /* Terlihat */
-    transform: translateY(0); /* Kembali ke posisi awal */
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .portfolio {
@@ -103,12 +89,6 @@ body {
 
 .portfolio-logo:hover {
     transform: scale(1.1);
-}
-
-@media (max-width: 768px) {
-    .portfolio {
-        grid-template-columns: 1fr;
-    }
 }
 
 .footer {
