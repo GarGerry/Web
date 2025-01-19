@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll(".section");
+    const sections = document.querySelectorAll("section");
 
     const observer = new IntersectionObserver(
         (entries) => {
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         },
         {
-            threshold: 0.1,
+            threshold: 0.5,  // Membuat animasi lebih mulus saat 50% bagian masuk viewport
         }
     );
 
