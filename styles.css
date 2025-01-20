@@ -120,6 +120,7 @@ section {
     background-color: #f1f8e9;
 }
 
+/* Tambahkan styling untuk logo dan nama */
 .logo-container {
     display: flex;
     justify-content: center;
@@ -128,16 +129,27 @@ section {
     margin-top: 10px;
 }
 
-.portfolio-logo {
+.logo-item {
+    text-align: center;
+    color: white; /* Agar teks konsisten dengan tema */
+}
+
+.logo-item img {
     max-width: 80px;
     height: auto;
     transition: transform 0.3s ease;
 }
 
-.portfolio-logo:hover {
+.logo-item img:hover {
     transform: scale(1.1);
 }
 
+.logo-item p {
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* Media query untuk tampilan mobile */
 @media (max-width: 768px) {
     .portfolio {
         grid-template-columns: 1fr;
@@ -155,7 +167,8 @@ section {
         font-size: 16px;
     }
 }
-./* Animasi Fade In */
+
+/* Animasi Fade In */
 @keyframes fadeIn {
     0% {
         opacity: 0;
