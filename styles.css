@@ -6,7 +6,7 @@
 
 html, body {
     height: 100%;
-    overflow: hidden; /* Menghilangkan overflow default */
+    overflow: hidden;  /* Menonaktifkan overflow di body */
     scroll-behavior: smooth; /* Untuk scroll yang lebih halus */
 }
 
@@ -48,12 +48,17 @@ header {
 .navigation ul li {
     margin: 0 15px;
 }
-
+/* Tombol Navbar lebih responsif dan transisi lebih halus */
 .navigation ul li a {
     text-decoration: none;
     color: white;
     font-size: 16px;
-    transition: color 0.3s;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navigation ul li a:hover {
+    color: grey;
+    transform: scale(1.05); /* Efek zoom pada link saat hover */
 }
 
 .navigation ul li a:hover {
@@ -150,10 +155,71 @@ section {
         font-size: 16px;
     }
 }
+./* Animasi Fade In */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
+/* Animasi Slide In dari bawah */
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animasi Zoom In */
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Applying different animations to each section */
+#Home {
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+#What-I-Do {
+    animation: slideInUp 1s ease-in-out forwards;
+}
+
+#Portfolio {
+    animation: zoomIn 1s ease-in-out forwards;
+}
+
+/* Apply fade-in when the section is in view */
+.section {
+    opacity: 0;  /* Mulai dengan transparan */
+    transform: translateY(50px);  /* Posisi awal */
+    transition: opacity 1s, transform 1s;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mengatur agar footer tidak ikut bergulir dengan konten */
 .footer {
     text-align: center;
     padding: 20px;
     background: black;
     border-top: 1px solid white;
+    position: relative; /* Agar footer tetap di bawah dan tidak ikut slide */
+    margin-top: 20px; /* Menambahkan margin agar tidak terlalu rapat dengan konten */
 }
