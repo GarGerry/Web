@@ -116,22 +116,44 @@ section {
     background-color: #f1f8e9;
 }
 
-.logo-container {
-    display: flex;
-    justify-content: center;
+/* Bagian Portfolio Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Responsif grid */
     gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 10px;
+    justify-items: center;
+    align-items: center;
 }
 
-.portfolio-logo {
-    max-width: 80px;
+/* Item dalam Portfolio */
+.portfolio-item {
+    text-align: center;
+}
+
+.portfolio-item img {
+    max-width: 80px; /* Ukuran logo */
     height: auto;
-    transition: transform 0.3s ease;
+    margin-bottom: 10px; /* Jarak antara logo dan teks */
 }
 
-.portfolio-logo:hover {
-    transform: scale(1.1);
+.portfolio-item p {
+    font-size: 14px;
+    color: white;
+}
+
+/* Responsif untuk grid */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Ukuran lebih kecil untuk perangkat kecil */
+    }
+
+    .portfolio-item img {
+        max-width: 60px;
+    }
+
+    .portfolio-item p {
+        font-size: 12px;
+    }
 }
 
 /* Kartu proyek */
