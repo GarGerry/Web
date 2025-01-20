@@ -1,4 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const navbar = document.querySelector('.header');
+    
+    // Menambahkan kelas "scrolled" saat scroll
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 0) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
     const sections = document.querySelectorAll('.section');
     let currentIndex = 0;
     const totalSections = sections.length;
@@ -38,11 +49,36 @@ document.addEventListener('DOMContentLoaded', function () {
     // Fungsi untuk animasi muncul setiap section
     function animateSections() {
         sections.forEach((section) => {
-            section.style.transform = 'translateY(0)';
-            section.style.opacity = '1';  // Membuat tampilan terlihat
+            // Memeriksa apakah section sudah di view port
+            const sectionPosition = section.getBoundingClientRect();
+            if (sectionPosition.top < window.innerHeight && sectionPosition.bottom >= 0) {
+                section.classList.add('visible');
+            }
         });
     }
 
-    // Animasi muncul untuk setiap section saat pertama kali dimuat
+    // Trigger animasi ketika halaman dimuat
     animateSections();
+
+    // Animasi muncul saat scroll
+    window.addEventListener('scroll', animateSections);
+    
+    // Event listener untuk klik pada navbar
+    document.querySelectorAll('.navigation ul li a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Ambil id dari link
+            const targetId = this.getAttribute('href').substring(1);
+
+            // Temukan section yang sesuai
+            const targetSection = document.getElementById(targetId);
+
+            // Scroll ke section tersebut dengan transisi halus
+            targetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
 });
